@@ -3,16 +3,17 @@ const Workout = require("../models/Workout.js");
 
 
 router.get("/api/workouts", (req, res) => {
-    console.log("Here");
 
-    Workout.find({}).sort({day: 1}).then((data) => {
-        console.log(data);
-
-            res.json(data);
+    Workout.find({}).sort().then((data) => {
+        res.json(data);
     });
 });
-router.post("/api/workouts/:id", (req, res) => {
+router.post("/api/workouts", (req,res) =>{
     console.log(req.body);
+    Workout.create(req.body);
+});
+router.put("/api/workouts/:id", (req, res) => {
+
     Workout.update(req.body, (error, data) => {
         if (error) {
             res.send(error);
