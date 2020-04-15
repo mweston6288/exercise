@@ -8,13 +8,8 @@ const exercisesSchema = new Schema({
         default: Date.now()
     },
     exercises:[{
-        type: String,
-        name: String,
-        duration: Number,
-        weight: Number,
-        reps: Number,
-        sets: Number,
-        distance: Number
+        type: Schema.Types.ObjectId,
+        ref: "Exercises"
     }]
 });
 
