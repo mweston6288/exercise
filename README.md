@@ -24,3 +24,6 @@ Displays your workout stats in four graphs.
     * Workout: Tracks the day the workout was created and an array of exercises
     * Exercises: Contains all relavant fields an exercise might have. Some fields may be left blank depending on the exercise
 * Routes: Contains the html and API routing files
+
+**TODO**
+Line Graph tracks time per exercise rather than per day. Will need to change day field to better combine 
