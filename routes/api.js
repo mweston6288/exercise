@@ -23,7 +23,7 @@ router.put("/api/workouts/:id", (req, res) => {
     }
 });
 router.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({}).then((data)=>{
+    db.Workout.find({}).populate("exercises").then((data)=>{
         res.json(data);
     })
 })
