@@ -15,9 +15,9 @@ router.post("/api/workouts", (req,res) =>{
 });
 router.put("/api/workouts/:id", (req, res) => {
     if (req.params){
-        console.log(req.params)
+        console.log(req.body)
         db.Exercises.create(req.body)
-            .then(({ _id })=> db.Workout.findOneAndUpdate({"_id" : mongojs.ObjectId(req.params.id)}, { $push: { exercises: _id } }))
+            .then(({ _id })=> db.Workout.findOneAndUpdate({"_id" : mongojs.ObjectId(req.params.id)}, { $push: { exercises: _id }, $inc:{ "totalDuration": req.body.duration} }))
             .then(WorkoutDB=>{
                 res.json(WorkoutDB);
             })
